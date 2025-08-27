@@ -6,8 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Justicia Educativa - PACE UDA</title>
     <meta name="description" content="Aplicación educativa sobre el Poder Judicial chileno para estudiantes de tercero medio.">
+
+    <!-- Tailwind CSS v3.4 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuración de Tailwind para modo oscuro y personalización -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              cyan: {
+                400: '#22d3ee',
+                500: '#06b6d4',
+              },
+              teal: {
+                400: '#2dd4bf',
+                500: '#14b8a6',
+              },
+              'blue-900/30': 'rgba(30, 64, 175, 0.3)',
+              'teal-900/30': 'rgba(15, 118, 110, 0.3)',
+              'purple-900/30': 'rgba(124, 60, 183, 0.3)',
+              'red-900/30': 'rgba(220, 38, 38, 0.3)',
+              'green-900/30': 'rgba(20, 124, 50, 0.3)',
+              'gray-900/80': 'rgba(17, 24, 39, 0.8)',
+              'white/80': 'rgba(255, 255, 255, 0.8)',
+              'white/90': 'rgba(255, 255, 255, 0.9)',
+            },
+            backdropBlur: {
+              md: '12px',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          },
+        },
+        plugins: [],
+      }
+    </script>
+
+    <!-- Estilos globales para glassmorphism y modo oscuro -->
+    <style>
+      body {
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      }
+      .backdrop-blur-md {
+        backdrop-filter: blur(12px);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .animate-fade-in {
+          animation: fadeIn 0.5s ease-out;
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="min-h-screen transition-colors duration-500 bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
